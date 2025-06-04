@@ -20,7 +20,7 @@ export const useRuleEngine = (): RuleEngineResult => {
   const { cart } = useCartStore();
 
   return useMemo(() => {
-    // Mapas para optimizar las consultas
+    
     const priceModRules = rules.filter(rule => rule.type === 'price_mod');
     const allowRules = rules.filter(rule => rule.type === 'allow' && rule.value === false);
 
@@ -29,14 +29,14 @@ export const useRuleEngine = (): RuleEngineResult => {
       let isDisabled = false;
       let disabledReason = '';
 
-      // Verificar modificaciones de precio
+      
       for (const rule of priceModRules) {
         const affectedCondition = rule.conditions.find(
           cond => cond.item_id === item.id && cond.is_affected
         );
         
         if (affectedCondition) {
-          // Verificar si las condiciones se cumplen con el carrito actual
+          
           const requirementConditions = rule.conditions.filter(
             cond => !cond.is_affected
           );
@@ -51,16 +51,16 @@ export const useRuleEngine = (): RuleEngineResult => {
         }
       }
 
-      // Verificar restricciones de combinación
+      
       for (const rule of allowRules) {
-        // Buscar si este item está involucrado en la regla
+        
         const itemInRule = rule.conditions.find(cond => cond.item_id === item.id);
         
         if (itemInRule) {
-          // Buscar otros items en la misma regla
+          
           const otherItemsInRule = rule.conditions.filter(cond => cond.item_id !== item.id);
           
-          // Verificar si alguno de los otros items está en el carrito
+          
           const hasConflictingItem = otherItemsInRule.some(otherCond => {
             return cart.some(cartItem => cartItem.id === otherCond.item_id);
           });
