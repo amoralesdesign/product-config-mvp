@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { ItemSelector } from "../components"
 import { useItemStore } from "../store/useItemStore"
 import { useCategoryStore } from "../store/useCategoryStore"
