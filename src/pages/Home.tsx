@@ -6,15 +6,15 @@ import { useRuleStore } from "../store/useRuleStore"
 import { Logo } from "../components"
 
 export const Home = () => {
-  const { items, fetchData } = useItemStore()
+  const { items, fetchData, loading: itemsLoading } = useItemStore()
   const { categories } = useCategoryStore()
-  const { fetchRules } = useRuleStore()
-  const [isLoading, setIsLoading] = useState(true)
+  const { fetchRules, loading: rulesLoading } = useRuleStore()
+
+  const isLoading = itemsLoading && rulesLoading
 
   useEffect(() => {
     fetchData()
     fetchRules()
-    setIsLoading(false)
   }, []);
 
   if (isLoading) {
