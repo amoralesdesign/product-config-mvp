@@ -9,7 +9,7 @@ git clone https://github.com/amoralesdesign/product-config-mvp.git
 
 ```
 ```
-cd product-configuration-mvp
+cd product-config-mvp
 
 ```
 ### 2. Install dependencies
