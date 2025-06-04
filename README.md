@@ -5,8 +5,12 @@ A product configuration system that allows salespeople in a physical store to cr
 ## 🚀 How to test the project locally
 ### 1. Clone the repository
 ```
-> git clone https://github.com/antonioml/product-configuration-mvp.git
+> git clone https://github.com/amoralesdesign/product-configuration-mvp.git
+
+```
+```
 > cd product-configuration-mvp
+
 ```
 ### 2. Install dependencies
 ```
