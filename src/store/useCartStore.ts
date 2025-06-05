@@ -7,7 +7,6 @@ interface CartStore {
   addToCart: (item: Item) => void
   removeFromCart: (categoryId: string) => void
   clearCart: () => void
-  isSelected: (item: Item) => boolean
 }
 
 export const useCartStore = create<CartStore>()(
@@ -26,9 +25,6 @@ export const useCartStore = create<CartStore>()(
       },
       clearCart: () => {
         set({ cart: [] })
-      },
-      isSelected: (item) => {
-        return get().cart.some((i) => i.id === item.id)
       },
     }),
     {
