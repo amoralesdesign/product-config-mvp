@@ -32,7 +32,7 @@ export const useCartStore = create<CartStore>()(
       },
     }),
     {
-      name: 'cart-storage', // Clave en localStorage
+      name: 'cart-storage',
     }
   )
 )
