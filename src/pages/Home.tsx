@@ -10,7 +10,7 @@ export const Home = () => {
   const { categories } = useCategoryStore()
   const { fetchRules, loading: rulesLoading } = useRuleStore()
 
-  const isLoading = itemsLoading && rulesLoading
+  const isLoading = itemsLoading || rulesLoading
 
   useEffect(() => {
     fetchData()
